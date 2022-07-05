@@ -10,20 +10,23 @@ Actor Property PlayerRef Auto
 GlobalVariable Property LastKnownSoulsCount Auto  
 {Number of Dragon Souls for which magnitudes were calculated}
 
+GlobalVariable Property SoulFusionMinSouls Auto
+
 Spell Property SoulFusionAbility Auto
 {An ability to be applied on player when number of Dragon Souls changes}  
 
 Event OnEffectStart(actor akTarget, actor akCaster)
 	Int soulsCount = PlayerRef.GetActorValue("DragonSouls") as Int
 	
-	Debug.Notification("You contain " + soulsCount  + " dragon souls")
+	;Debug.Notification("You contain " + soulsCount  + " dragon souls")
 	
 	; If Player gained new Soul then we recast Soul Fusion.
-	If soulsCount > LastKnownSoulsCount.GetValue()
+	If soulsCount > LastKnownSoulsCount.GetValue() && soulsCount >= SoulFusionMinSouls.GetValue()
 		SoulFusionAbility.Cast(PlayerRef, PlayerRef)
-		; Save last checked number of souls and perk state.
-		LastKnownSoulsCount.SetValue(soulsCount)	
 	ElseIf soulsCount != LastKnownSoulsCount.GetValue()
 		Recast(PlayerRef, Spells)
 	EndIf
+	
+	; Save last checked number of souls and perk state.
+	LastKnownSoulsCount.SetValue(soulsCount)	
 EndEvent
