@@ -9,10 +9,10 @@ Actor Property PlayerRef Auto
 
 Event OnEffectStart(actor akTarget, actor akCaster)
 	Debug.Notification("Soul Fusion Active")
-	Recast(PlayerRef, Spells)
+	RecastAll(PlayerRef, Spells)
 EndEvent
 
 Event OnEffectFinish(Actor akTarget, Actor akCaster)
 	Debug.Notification("Soul Fusion Dispelled")
-	Recast(PlayerRef, Spells)
+	RecastAll(PlayerRef, Spells)
 EndEvent
