@@ -1,0 +1,189 @@
+{
+    "modName": "Dragonborn Aptitude",
+    "displayName": "$Dragonborn Aptitude",
+    "cursorFillMode": "topToBottom",
+    "content": [
+		{
+			"type": "header",
+            "text": "$Dragon Souls"
+		},
+        {
+            "id": "iAttributesPerSoul:General",
+            "type": "slider",
+            "text": "$Attributes",
+            "help": "$AttributesPerSoulHelp",
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType": "ModSettingInt",
+                "formatString":"{0}"
+            }
+        },
+        {
+            "id": "iShoutsPerSoul:General",
+            "type": "slider",
+            "text": "$Shouts Power",
+            "help": "$ShoutsPerSoulHelp",
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType": "ModSettingInt",
+                "formatString":"{0}%"
+            }
+        },
+        {
+            "id": "bSoulsFusion:General",
+            "type": "toggle",
+            "text": "$Souls Fusion",
+            "help": "$SoulsFusionHelp",
+            "valueOptions": {
+                "sourceType": "ModSettingBool"
+            }
+        },
+        {
+            "id": "iSoulsCapacity:General",
+            "type": "slider",
+            "text": "$Capacity",
+            "help": "$SoulsCapacityHelp",
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType": "ModSettingInt",
+                "formatString":"{0}"
+            }
+        },
+        {
+            "type": "header",
+            "text": "$Souls Overflow"
+        },
+        {
+            "id": "bStaggeringThuum:Overflow",
+            "type": "toggle",
+            "text": "$Staggering Thuum",
+            "help": "$StaggeringThuumHelp",
+            "valueOptions": {
+                "sourceType":"ModSettingBool"
+            }
+        },
+        {
+            "id": "iSoulInfusion:Overflow",
+            "type": "stepper",
+            "text": "$Infusion uses Dragon Soul",
+            "help": "$SoulInfusionBehaviorHelp",
+            
+            "valueOptions": {
+                "sourceType":"ModSettingInt",
+                "options": ["$Never", "$In combat", "$Always"]
+            }
+        },
+        {
+            "id": "iSoulInfusionChance1stWord:Overflow",
+            "type": "slider",
+            "text": "$Infusion Chance for one Word",
+            "help": "$SoulInfusion1stWordHelp",
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType":"ModSettingInt",
+                "formatString":"{0}%"
+            }
+        },
+        {
+            "id": "iSoulInfusionChance2ndWord:Overflow",
+            "type": "slider",
+            "text": "$Infusion Chance for two Words",
+            "help": "$SoulInfusion2ndWordHelp",
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType":"ModSettingInt",
+                "formatString":"{0}%"
+            }
+        },
+        {
+            "id": "iSoulInfusionChance3rdWord:Overflow",
+            "type": "slider",
+            "text": "$Infusion Chance for three Words",
+            "help": "$SoulInfusion3rdWordHelp",
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType":"ModSettingInt",
+                "formatString":"{0}%"
+            }
+        },
+        {
+            "type": "header",
+            "text": "$Thuum Fluency",
+            "position": 1
+        },
+        {
+            "id": "iCooldownReduction:Thuum Fluency",
+            "type": "slider",
+            "text": "$Shouts Cooldown Reduction",
+            "help": "$CooldownReductionHelp",
+            "position": 3,
+            "valueOptions": {
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "sourceType": "ModSettingInt",
+                "formatString": "{0}%"
+            }
+        },
+        {
+            "type":"empty",
+            "position": 5
+        },
+        {
+            "id": "iShoutsPerThuumPoint:Thuum Fluency",
+            "type": "slider",
+            "text": "$Required Shouts",
+            "help": "$ShoutsPerThuumPointHelp",
+            "position": 7,
+            "valueOptions": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "sourceType":"ModSettingInt",
+                "formatString":"{0}"
+            }
+        },
+        {
+            "type":"empty",
+            "position": 9
+        },
+        {
+            "id": "iMaximumThuumPoints:Thuum Fluency",
+            "type": "slider",
+            "text": "$Maximum Points",
+            "help": "$MaximumThuumPointsHelp",
+            "position": 11,
+            "valueOptions": {
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "sourceType":"ModSettingInt",
+                "formatString":"{0}"
+            }
+        },
+        {
+            "id": "sCurrentThuumPoints",
+            "type": "text",
+            "text": "$Current Progress",
+            "help": "$CurrentProgressHelp",
+            "position": 13,
+            "valueOptions": {
+                "sourceType":"PropertyValueString",
+                "propertyName":"sCurrentThuumPoints",
+                "defaultValue": "0"
+            }
+        }
+	]
+}

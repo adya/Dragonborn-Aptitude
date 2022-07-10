@@ -4,6 +4,9 @@ Scriptname DA_InfuseSouls extends ActiveMagicEffect
 Actor Property PlayerRef Auto  
 {Player}
 
+GlobalVariable Property DA_SoulInfusionBehavior Auto
+{Behavior of the Soul Infusion. 0 - use Drargon Soul always, 1 - use Dragon Soul only in combat, 2 - don't use Dragon Soul}
+
 GlobalVariable Property DA_InfusionChance1stWord Auto
 {A chance that a Dragon Soul will be infused into your next shout that used one word}
 
@@ -26,10 +29,12 @@ Event OnSpellCast(Form akSpell)
 		Return
 	EndIf
 	Int chance = InfusionChance(shoutSpell)
-	Debug.Notification("Infusion chance is " + chance + "%")
-	If akSpell.HasKeyword(MagicShout) && Utility.RandomInt(0, 99) < chance
-		Debug.Notification("Infused Dragon Soul")
-		PlayerRef.ModActorValue("DragonSouls", -1)
+	If Utility.RandomInt(0, 99) < chance
+		Debug.Trace("Infused Dragon Soul")
+		Int behavior = DA_SoulInfusionBehavior.GetValueInt()
+		If behavior == 2 || (behavior == 1 && PlayerRef.IsInCombat())
+			PlayerRef.ModActorValue("DragonSouls", -1)
+		EndIf
 		; Double shout's effect by casting a second copy of it.
 		Spell akShout = akSpell as Spell
 		akShout.Cast(PlayerRef)
@@ -37,8 +42,9 @@ Event OnSpellCast(Form akSpell)
 	EndIf
 EndEvent
 
-; Retrieves an infusion chance depending on a number of words used in a shout.
 Int Function InfusionChance(Spell akSpell)
+{Retrieves an infusion chance depending on a number of words used in a shout}
+
 	Shout equippedShout = PlayerRef.GetEquippedShout()
 	If akSpell == EquippedShout.GetNthSpell(0)
 		Return DA_InfusionChance1stWord.GetValue() as Int
