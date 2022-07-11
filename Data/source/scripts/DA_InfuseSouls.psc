@@ -5,7 +5,7 @@ Actor Property PlayerRef Auto
 {Player}
 
 GlobalVariable Property DA_SoulInfusionBehavior Auto
-{Behavior of the Soul Infusion. 0 - use Drargon Soul always, 1 - use Dragon Soul only in combat, 2 - don't use Dragon Soul}
+{Behavior of the Soul Infusion. 0 - don't use Dragon Soul, 1 - use Dragon Soul only in combat, 2 - use Drargon Soul always}
 
 GlobalVariable Property DA_InfusionChance1stWord Auto
 {A chance that a Dragon Soul will be infused into your next shout that used one word}
