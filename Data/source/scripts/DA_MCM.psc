@@ -132,14 +132,14 @@ Function UpdateAnecstorsEcho()
     Int effectivePoints = DA_AncestorsEchoShoutIncreasePerSoul.GetValueInt()
     Int soulsCapacity = DA_SoulsCapacity.GetValueInt()
     
-    Float modShout = 1 + 0.01 * effectivePoints
-    Float modShoutFused = 1 + 0.02 * effectivePoints
+    Float modShout = 0.01 * effectivePoints
+    Float modShoutFused = 0.02 * effectivePoints
     Float maximumModShout = 1 + 0.01 * soulsCapacity * effectivePoints
     Float maximumModShoutFused = 1 + 0.02 * soulsCapacity * effectivePoints
     Float modAbility = effectivePoints
     Float maximumModAbility = soulsCapacity * effectivePoints
     ; During Soul Fusion abilities are doubled by Soul Fusion Perk
-    
+ 
     DA_AncestorsEchoPerk.SetNthEntryValue(0, 0, maximumModShoutFused)
     DA_AncestorsEchoPerk.SetNthEntryValue(1, 0, maximumModShout)
     DA_AncestorsEchoPerk.SetNthEntryValue(2, 1, modShoutFused)
